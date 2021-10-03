@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,
+    minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+    />
+    <title>Doraemon</title>
+    <script type="text/javascript">
+      window.onload = function () {
+        let pag = document.querySelectorAll(".package")[0];
+        let img1 = document.querySelectorAll(".candy1")[0];
+        let img2 = document.querySelectorAll(".candy2")[0];
+        let txt1 = document.querySelectorAll(".Text1")[0];
+        let txt2 = document.querySelectorAll(".Text2")[0];
+        let time = 1;
+        f1 = function () {
+          txt1.style.display = "inline";
+        };
+        f2 = function () {
+          txt1.style.display = "none";
+        };
+        pag.addEventListener("mouseenter", f1);
+        pag.addEventListener("mouseleave", f2);
+        function package_show() {
+          if (time === 1) {
+            txt1.style.display = "none";
+            img1.style.display = "inline";
+            pag.removeEventListener("mouseenter", f1);
+            pag.removeEventListener("mouseleave", f2);
+          } else if (time === 2) {
+            txt1.style.display = "none";
+            img1.style.display = "none";
+            img2.style.display = "inline";
+          } else if (time === 3) {
+            txt1.style.display = "none";
+            img2.style.display = "none";
+            txt2.style.display = "inline";
+          } else if (time === 4) {
+            time = 0;
+            txt2.style.display = "none";
+            pag.addEventListener("mouseenter", f1);
+            pag.addEventListener("mouseleave", f2);
+          }
+          time++;
+        }
+        pag.addEventListener("click", package_show);
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- <script src="style.js"></script> -->
+    <div id="demo"></div>
+    <style id="demo2"></style>
+    <div id="buttons">
+      <button id="btnPause">暂停</button>
+      <button id="btnPlay">播放</button>
+      <button id="btnSlow">慢速</button>
+      <button id="btnNormal">中速</button>
+      <button id="btnFast">快速</button>
+    </div>
+    <style>
+      #buttons {
+        position: fixed;
+        z-index: 9;
+        display: flex;
+        top: 0;
+        flex-direction: column;
+        right: 58%;
+        margin-top: 20px;
+      }
+
+      #buttons > button {
+        margin-bottom: 10px;
+        padding: 4px 8px;
+      }
+
+      #html {
+        position: fixed;
+        right: 0;
+        bottom: 0px;
+        height: 100%;
+        width: 55%;
+      }
+
+      #demo2 {
+        display: none;
+      }
+
+      #demo {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 45%;
+        border: 1px solid black;
+        overflow: auto;
+      }
+
+      #demo::-webkit-scrollbar {
+        /* 隐藏滚动条 */
+        display: none;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      *::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <div id="html">
+      <header class="blue-head">
+        <div class="face"></div>
+        <div class="eyes">
+          <div class="eye-left"></div>
+          <div class="eye-right"></div>
+        </div>
+        <div class="nose"></div>
+        <div class="mouth">
+          <div class="line"></div>
+          <div class="circle"></div>
+        </div>
+        <div class="moustache">
+          <div class="moustache-left"></div>
+          <div class="moustache-right"></div>
+        </div>
+      </header>
+      <main class="D-body">
+        <div class="neck">
+          <div class="ring">
+            <div class="top"></div>
+            <div class="middle"></div>
+            <div class="down"></div>
+          </div>
+        </div>
+        <div class="abdomen">
+          <div class="subAbdomen"></div>
+          <div class="package">
+            <div class="Text1" style="display: none">点击有惊喜呦^~^!</div>
+            <div class="Text2" style="display: none">一个也没有啦!</div>
+            <img
+              class="candy1"
+              src="./images/candy1.png"
+              alt=""
+              style="display: none"
+            />
+            <img
+              class="candy2"
+              src="./images/candy2.png"
+              alt=""
+              style="display: none"
+            />
+          </div>
+        </div>
+        <div class="foot">
+          <div class="footLeft"></div>
+          <div class="footRight"></div>
+        </div>
+        <div class="arm">
+          <div class="armLeft"></div>
+          <div class="armRight"></div>
+        </div>
+        <div class="fist">
+          <div class="fistRight"></div>
+          <div class="fistLeft"></div>
+        </div>
+      </main>
+      <script src="style.js"></script>
+    </div>
+  </body>
+</html>
